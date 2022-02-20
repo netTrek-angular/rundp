@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelperLibModule } from 'helper-lib';
+// import { HelperLibModule } from 'helper-lib';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { HelperLibModule } from 'helper-lib';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HelperLibModule
+    // HelperLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
