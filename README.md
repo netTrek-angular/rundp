@@ -3,6 +3,9 @@
 ## Blank setup generated via
 ````ng new rundp --create-application false --skip-install````
 
+## add application
+````ng generate application mainApp --skip-install --prefix rundp --routing true --style scss````
+
 # Comit
 ## comitlint rules
 
