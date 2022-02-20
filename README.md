@@ -8,6 +8,7 @@
 
 ### add eslint 
 ``ng add @angular-eslint/schematics``
+- fix eslint error in eslint.config
 
 ### add e2e 
 ``ng add @cypress/schematic``
