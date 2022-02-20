@@ -1,0 +1,59 @@
+{
+  "projectType": "library",
+  "root": "libs/header",
+  "sourceRoot": "libs/header/src",
+  "prefix": "rp",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/header/src/test.ts",
+        "tsConfig": "libs/header/tsconfig.spec.json",
+        "karmaConfig": "libs/header/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/header/src/**/*.ts",
+          "libs/header/src/**/*.html"
+        ]
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "port": 4400,
+        "config": {
+          "configFolder": "libs/header/.storybook"
+        },
+        "projectBuildConfig": "header:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "outputPath": "dist/storybook/header",
+        "config": {
+          "configFolder": "libs/header/.storybook"
+        },
+        "projectBuildConfig": "header:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "finance": "apps/finance",
-    "finance-e2e": "apps/finance-e2e"
+    "finance-e2e": "apps/finance-e2e",
+    "header": "libs/header",
+    "header-e2e": "apps/header-e2e"
   }
 }
