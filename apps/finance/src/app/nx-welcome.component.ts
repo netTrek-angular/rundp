@@ -457,6 +457,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
               <span>You&apos;re up and running</span>
             </h2>
             <a href="#commands"> What&apos;s next? </a>
+            <button (click)="doIt()">test</button>
           </div>
           <div class="logo-container">
             <svg
@@ -846,4 +847,10 @@ export class NxWelcomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  doIt () {
+    const d = 123;
+    console.log ('hi', d)
+    console.log ( 'rockc' );
+  }
 }

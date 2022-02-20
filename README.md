@@ -1,4 +1,8 @@
+# setup
 
+- **npx create-nx-workspace@latest --name rp --preset angular --appName finance --style scss  --nx-cloud true**
+
+- install plugin nx console idea
 
 # Rp
 
