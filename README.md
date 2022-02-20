@@ -9,6 +9,11 @@
 ### add eslint 
 ``ng add @angular-eslint/schematics``
 
+### add e2e 
+``ng add @cypress/schematic``
+
+use Protractor 2 Cypress Migration
+
 # Comit
 ## comitlint rules
 
