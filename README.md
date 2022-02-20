@@ -6,6 +6,9 @@
 ## add application
 ````ng generate application mainApp --skip-install --prefix rundp --routing true --style scss````
 
+### add eslint 
+``ng add @angular-eslint/schematics``
+
 # Comit
 ## comitlint rules
 
