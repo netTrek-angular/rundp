@@ -6,15 +6,19 @@ const routes: Routes = [
   {
     path: '', component: DynComponent, children: [
       {
-        path: '', pathMatch: 'full', redirectTo:'embedded-view'
+        path: '', pathMatch: 'full', redirectTo:'use-component'
       },
       {
         path: 'use-template',
-        loadChildren: () => import('./use-template-outlet/use-template-outlet.module').then(m => m.UseTemplateOutletModule)
+        loadChildren: () => import('./use-template-outlet/use-template-outlet.module')
+          .then(m => m.UseTemplateOutletModule)
       },
       { path: 'embedded-view',
         loadChildren: () => import('./embedded-view/embedded-view.module')
           .then(m => m.EmbeddedViewModule) },
+      { path: 'use-component',
+        loadChildren: () => import('./use-component-outlet/use-component-outlet.module')
+          .then(m => m.UseComponentOutletModule) },
     ]
   },
 ]
