@@ -7,4 +7,12 @@
 <ng-template #strong let-s="value">
   <strong>s:= {{s}}</strong>
 </ng-template>
-
+<!--
+<rp-embed-via-content>
+  -->
+<rp-embed-via-content [dataProvider]="[5,6,7]">
+  <div *rpEmbedable="let s = value">- {{s}}</div>
+</rp-embed-via-content>
+<rp-embed-via-content >
+  <div *rpEmbedable="let s = value">- {{s}}</div>
+</rp-embed-via-content>
