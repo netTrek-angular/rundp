@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'rp-ui',
   templateUrl: './ui.component.html',
   styleUrls: ['./ui.component.scss']
 })
-export class UiComponent implements OnInit {
+export class UiComponent  {
+  @Input()
+  val = 'hello world';
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  @Input()
+  val2 = 'hello world';
 }
