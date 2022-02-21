@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rp/ui": ["libs/ui/src/index.ts"]
+      "@rp/ui": ["libs/ui/src/index.ts"],
+      "@rp/dash": ["libs/ui/src/lib/dash/dash.module"]
     }
   },
   "exclude": ["node_modules", "tmp"]
