@@ -2,7 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('@rp/dash').then(m => m.DashModule) }
+  { path: '', loadChildren: () => import('./dyn/dyn.module').then(m => m.DynModule) },
+  { path: 'dash', loadChildren: () => import('@rp/dash').then(m => m.DashModule) }
 ];
 
 @NgModule({
