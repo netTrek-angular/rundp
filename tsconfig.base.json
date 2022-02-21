@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@rp/ui": ["libs/ui/src/index.ts"],
-      "@rp/dash": ["libs/ui/src/lib/dash/dash.module"]
+      "@rp/dash": ["libs/ui/src/lib/dash/dash.module"],
+      "@rp/avatar": ["libs/ui/src/lib/avatar/avatar.component"]
     }
   },
   "exclude": ["node_modules", "tmp"]
