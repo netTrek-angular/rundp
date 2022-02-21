@@ -1,5 +1,10 @@
 <h3>embedded-view works!</h3>
 
 <ng-template>
-  myTemp Ref
+  <p>myTemp Ref</p>
 </ng-template>
+
+<ng-template #strong let-s="value">
+  <strong>s:= {{s}}</strong>
+</ng-template>
+

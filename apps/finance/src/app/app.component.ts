@@ -14,9 +14,9 @@ export class AppComponent implements AfterViewInit {
 
   async ngAfterViewInit() {
     const comp = await import('@rp/avatar').then( m => m.AvatarComponent );
-    console.log( comp );
+    // console.log( comp );
     const compRef = this.viewContainerRef.createComponent<AvatarComponent>( comp );
     compRef.instance.show = true;
-    console.log( compRef )
+    // console.log( compRef )
   }
 }
