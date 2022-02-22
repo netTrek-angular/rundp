@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/reactive",
+  "sourceRoot": "libs/reactive/src",
+  "prefix": "rp",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/reactive"],
+      "options": {
+        "jestConfig": "libs/reactive/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/reactive/src/**/*.ts",
+          "libs/reactive/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
