@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, NgModule, OnInit} from '@angular/core';
+import {Component, HostListener, Inject, Input, NgModule, OnInit, Optional} from '@angular/core';
 import {CommonModule} from "@angular/common";
 
 @Component({
@@ -14,6 +14,10 @@ export class AvatarComponent {
   @HostListener('click')
   clicked() {
     this.show = !this.show
+  }
+
+  constructor( @Optional() @Inject('show') injectedShowVal?: boolean ) {
+    this.show = injectedShowVal
   }
 }
 
