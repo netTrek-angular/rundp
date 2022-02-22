@@ -1,0 +1,28 @@
+{
+  "root": "apps/sales-v2-e2e",
+  "sourceRoot": "apps/sales-v2-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/sales-v2-e2e/cypress.json",
+        "devServerTarget": "sales-v2:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "sales-v2:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/sales-v2-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["sales-v2"]
+}

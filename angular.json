@@ -3,6 +3,8 @@
   "projects": {
     "finance": "apps/finance",
     "finance-e2e": "apps/finance-e2e",
+    "sales-v2": "apps/sales-v2",
+    "sales-v2-e2e": "apps/sales-v2-e2e",
     "ui": "libs/ui"
   }
 }

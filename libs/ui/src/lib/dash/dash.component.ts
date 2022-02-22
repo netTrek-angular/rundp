@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'rp-dash',
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.scss']
 })
-export class DashComponent implements OnInit {
+export class DashComponent {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

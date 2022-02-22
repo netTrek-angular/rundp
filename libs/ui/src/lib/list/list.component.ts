@@ -1,10 +1,9 @@
-import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'rp-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  // encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ListComponent implements OnChanges {
 
