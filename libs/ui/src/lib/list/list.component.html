@@ -1,0 +1,7 @@
+<rp-list-item
+  *ngFor="let val of dataProvider"
+  [value]="val"
+  (selectedVal)="selectedValue( $event )"
+  [selected]="selectedVal===val"
+  >
+</rp-list-item>

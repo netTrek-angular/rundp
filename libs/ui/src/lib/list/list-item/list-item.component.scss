@@ -1,0 +1,8 @@
+:host {
+  display: block;
+  cursor: pointer;
+  &.active {
+    cursor: auto;
+    font-weight: bolder;
+  }
+}

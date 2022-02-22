@@ -7,5 +7,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'finance';
+  myData = ['saban', 'peter', 'heike'];
+  selectedIndex = -1;
 
+  chged(val: string) {
+    console.log ( 'selected', val )
+    this.selectedIndex = this.myData.indexOf( val );
+  }
+
+  up() {
+    this.selectedIndex ++;
+  }
+
+  down() {
+    this.selectedIndex --;
+  }
+
+  chgDP() {
+    // this.myData = ['hans', 'frank'];
+  }
 }

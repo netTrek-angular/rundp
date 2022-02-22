@@ -1,5 +1,17 @@
 <rp-hello-world></rp-hello-world>
-<rp-ui></rp-ui>
+<rp-list
+  [dataProvider]="myData"
+  (selectionChanged)="chged($event)"
+  [selectedIndex]="selectedIndex"
+></rp-list>
+
+<button (click)="up()">increment</button>
+<button (click)="down()">decrement</button>
+<!--
+
+<button (click)="chgDP()">chg DataProvider</button>
+-->
+
 <!--
 <rp-nx-welcome></rp-nx-welcome>
 -->
