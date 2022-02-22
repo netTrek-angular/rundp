@@ -9,7 +9,7 @@ const forTestingOnly: Routes = [
 
 const routes: Routes = [
   ...forTestingOnly,
-  { path: 'dash', loadChildren: () => import('./dash/dash.module').then(m => m.DashModule) }
+  { path: 'dash', loadChildren: () => import('@rp/dash-module').then(m => m.DashModule) }
 ];
 
 @NgModule( {
