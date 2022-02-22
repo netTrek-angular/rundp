@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import {ListModule} from "@rp/ui";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, HelloWorldComponent],
-  imports: [BrowserModule, ListModule],
+  imports: [BrowserModule, ListModule, AppRoutingModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

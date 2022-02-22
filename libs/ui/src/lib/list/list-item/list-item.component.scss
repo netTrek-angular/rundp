@@ -1,8 +1,12 @@
 :host {
   display: block;
+  user-select: none;
   cursor: pointer;
   &.active {
     cursor: auto;
     font-weight: bolder;
   }
+}
+p {
+  color: red;
 }
