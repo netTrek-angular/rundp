@@ -1,4 +1,7 @@
+# redux
+## add store in nx
 
+``npm install @ngrx/store && npx nx g @ngrx/store:ng-add``
 
 # Rp
 
