@@ -2,7 +2,20 @@
 <a routerLink="/">home</a> |
 <a routerLink="/dyn">dyn</a> |
 <a routerLink="/dash">dash</a> |
+
+<hr>
+
+<p>
+  {{counter$ | async}}
+</p>
+<button (click)="increment()" >increment</button>
+<button (click)="decrement()" >decrement</button>
+<button (click)="setVal()" >setVal</button>
+<hr>
+
 <router-outlet></router-outlet>
+
+
 
 <!--
 <rp-ui val="Lars rocks"></rp-ui>

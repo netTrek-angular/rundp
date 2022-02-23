@@ -5,6 +5,8 @@ import {Store} from "@ngrx/store";
 import {selectNavigationId, selectRouterState, selectUrl} from "./_store/router/router.selectors";
 import {filter} from "rxjs";
 import {ROUTER_REQUEST} from "@ngrx/router-store";
+import {selectCounter, selectFeatureCountVal} from "./_store/selectors/counter/counter.selectors";
+import {decrementCounters, incrementCounters, setCountersVal} from "./_store/actions/counter/counter.actions";
 
 @Component({
   selector: 'rp-root',
@@ -14,6 +16,7 @@ import {ROUTER_REQUEST} from "@ngrx/router-store";
 export class AppComponent implements AfterViewInit {
 
   title = 'finance';
+  readonly counter$ = this.store.select( selectFeatureCountVal );
   private loadAvatar = false;
 
   constructor(
@@ -79,5 +82,17 @@ export class AppComponent implements AfterViewInit {
           }
         )
     */
+  }
+
+  decrement() {
+    this.store.dispatch( decrementCounters() )
+  }
+
+  increment() {
+    this.store.dispatch( incrementCounters() )
+  }
+
+  setVal() {
+    this.store.dispatch( setCountersVal ( { val: 111 }) )
   }
 }

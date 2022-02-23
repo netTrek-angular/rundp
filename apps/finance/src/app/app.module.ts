@@ -11,11 +11,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {routerFeatureKey} from "./_store/router/router.selectors";
+import {counterFeatureKey, counterReducer} from "./_store/reducers/counter/counter.reducer";
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, HelloWorldComponent],
   imports: [BrowserModule, UiModule, AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({
+    [counterFeatureKey]: counterReducer
+    }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forFeature( routerFeatureKey, routerReducer ),
     StoreRouterConnectingModule.forRoot()],
