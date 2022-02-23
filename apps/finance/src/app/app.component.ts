@@ -1,6 +1,10 @@
 import {AfterViewInit, Component, ViewContainerRef} from '@angular/core';
 import {AvatarComponent} from "@rp/avatar";
 import {Sample1Service} from "@rp/reactive";
+import {Store} from "@ngrx/store";
+import {selectNavigationId, selectRouterState, selectUrl} from "./_store/router/router.selectors";
+import {filter} from "rxjs";
+import {ROUTER_REQUEST} from "@ngrx/router-store";
 
 @Component({
   selector: 'rp-root',
@@ -12,12 +16,17 @@ export class AppComponent implements AfterViewInit {
   title = 'finance';
   private loadAvatar = false;
 
-  constructor( public viewContainerRef: ViewContainerRef, s1: Sample1Service ) {
+  constructor(
+    public readonly viewContainerRef: ViewContainerRef,
+    readonly s1: Sample1Service,
+    private readonly store: Store ) {
     // this.loadAvatar = true;
     // this.rxjsSamples(s1);
+
   }
 
   async ngAfterViewInit() {
+    this.runStoreSamples();
     await this.loadAvatarComp();
   }
 
@@ -54,4 +63,21 @@ export class AppComponent implements AfterViewInit {
     */
   }
 
+  private runStoreSamples() {
+
+    this.store.select( selectUrl ).pipe( filter ( v => !!v )).subscribe(
+      {
+        next: console.warn
+      }
+    )
+
+    /*
+
+        this.store.select( selectRouterState ).subscribe(
+          {
+            next: console.warn
+          }
+        )
+    */
+  }
 }
