@@ -9,13 +9,14 @@ import {AppRoutingModule} from "./app-routing.module";
 import {StoreModule} from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, HelloWorldComponent],
   imports: [BrowserModule, UiModule, AppRoutingModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forFeature( 'routes', routerReducer ),
     StoreRouterConnectingModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
