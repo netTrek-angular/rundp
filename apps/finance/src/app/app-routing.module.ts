@@ -1,8 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {CdecComponent} from "@rp/reactive";
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./dyn/dyn.module').then(m => m.DynModule) },
+  { path: '', component: CdecComponent },
+  { path: 'dyn', loadChildren: () => import('./dyn/dyn.module').then(m => m.DynModule) },
   { path: 'dash', loadChildren: () => import('@rp/dash').then(m => m.DashModule) }
 ];
 

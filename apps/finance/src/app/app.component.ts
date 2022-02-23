@@ -8,9 +8,31 @@ import {Sample1Service} from "@rp/reactive";
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
+
   title = 'finance';
+  private loadAvatar = false;
 
   constructor( public viewContainerRef: ViewContainerRef, s1: Sample1Service ) {
+    // this.loadAvatar = true;
+    // this.rxjsSamples(s1);
+  }
+
+  async ngAfterViewInit() {
+    await this.loadAvatarComp();
+  }
+
+  private async loadAvatarComp() {
+
+    if ( !this.loadAvatar ) return;
+
+    const comp = await import('@rp/avatar').then(m => m.AvatarComponent);
+    // console.log( comp );
+    const compRef = this.viewContainerRef.createComponent<AvatarComponent>(comp);
+    compRef.instance.show = true;
+    // console.log( compRef )
+  }
+
+  private rxjsSamples(s1: Sample1Service) {
     // s1.getMerge().subscribe( {next: console.log, complete: () => console.warn('f') })
     // s1.getLatest().subscribe( {next: console.log, complete: () => console.warn('f') })
     // s1.getConcat().subscribe( {next: console.log, complete: () => console.warn('f') })
@@ -19,7 +41,7 @@ export class AppComponent implements AfterViewInit {
     // s1.getDownDuration().subscribe( {next: console.log, complete: () => console.warn('f') })
     // s1.getSwitchMap().subscribe( {next: console.log, complete: () => console.warn('f') })
     // s1.getMergeMap().subscribe( {next: console.log, complete: () => console.warn('f') })
-    s1.getRecursive().subscribe( {next: console.log, complete: () => console.warn('f') })
+    s1.getRecursive().subscribe({next: console.log, complete: () => console.warn('f')})
 
     /*
     s1.store.subscribe( {next: console.log, complete: () => console.warn('f') });
@@ -32,11 +54,4 @@ export class AppComponent implements AfterViewInit {
     */
   }
 
-  async ngAfterViewInit() {
-    const comp = await import('@rp/avatar').then( m => m.AvatarComponent );
-    // console.log( comp );
-    const compRef = this.viewContainerRef.createComponent<AvatarComponent>( comp );
-    compRef.instance.show = true;
-    // console.log( compRef )
-  }
 }
