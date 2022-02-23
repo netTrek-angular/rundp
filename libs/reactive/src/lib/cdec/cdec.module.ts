@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CdecComponent } from './cdec.component';
+import { CdecInnerComponent } from './cdec-inner.component';
 
 
 
 @NgModule({
   declarations: [
-    CdecComponent
+    CdecComponent,
+    CdecInnerComponent
   ],
   imports: [
     CommonModule
