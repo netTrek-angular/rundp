@@ -7,26 +7,19 @@ import {HelloWorldComponent} from './hello-world/hello-world.component';
 import {UiModule} from "@rp/ui";
 import {AppRoutingModule} from "./app-routing.module";
 import {StoreModule} from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {routerFeatureKey} from "./_store/router/router.selectors";
-// import {counterFeatureKey, counterReducer} from "./_store/reducers/counter/counter.reducer";
-import { reducers, metaReducers } from './_store/root';
-// import * as fromAppStore from './_store/root/app-store.reducer';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, HelloWorldComponent],
   imports: [BrowserModule, UiModule, AppRoutingModule,
-    // StoreModule.forRoot({
-    // [counterFeatureKey]: counterReducer
-    // }, {}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreModule.forRoot({}, {}),
+    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreModule.forFeature( routerFeatureKey, routerReducer ),
     StoreRouterConnectingModule.forRoot(),
-    StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    // StoreModule.forFeature(fromAppStore.appStoreFeatureKey, fromAppStore.reducer)
     ],
   providers: [],
   bootstrap: [AppComponent],
