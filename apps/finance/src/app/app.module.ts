@@ -8,14 +8,15 @@ import {AppRoutingModule} from "./app-routing.module";
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import * as fromCounterStore from "./_store";
+import * as fromCounterStore from "./_store/counter.index";
+import { reducers, metaReducers } from './_store/app.reducer';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [BrowserModule, ListModule, AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    ...(environment.production ? [] : [StoreDevtoolsModule.instrument()]),
-    StoreModule.forFeature( fromCounterStore.counterFeatureKey, fromCounterStore.reducer )
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forFeature( fromCounterStore.counterFeatureKey, fromCounterStore.reducer ),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
   bootstrap: [AppComponent],

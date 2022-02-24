@@ -1,24 +1,11 @@
-<!--
-<rp-hello-world></rp-hello-world>
-<rp-list
-  [dataProvider]="myData"
-  (selectionChanged)="chged($event)"
-  [selectedIndex]="selectedIndex"
-></rp-list>
-
-<button (click)="up()">increment</button>
-<button (click)="down()">decrement</button>
-
-<button (click)="chgDP()">chg DataProvider</button>
--->
-
-<!--
-<rp-nx-welcome></rp-nx-welcome>
--->
-
 <nav>
   <a routerLinkActive="active" routerLink="home">home</a> |
   <a routerLinkActive="active"  routerLink="dash">dash</a>
 </nav>
 
+<h1>redux</h1>
+<button (click)="increment()">increment</button> |
+<button (click)="decrement()">decrement</button> |
+<button (click)="setVal()">set value</button> |
+<hr>
 <router-outlet></router-outlet>
