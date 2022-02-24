@@ -15,3 +15,8 @@ export const selectTestSum = createSelector(
   selectTest2,
   (t1, t2) => t1 + t2
 );
+
+export const selectTestSumParam = (num: number) =>
+  createSelector(
+    selectTestSum, sum => sum + num
+  );
