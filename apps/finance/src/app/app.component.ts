@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Store} from "@ngrx/store";
 import * as fromCounter from "./_store/counter.index";
+import * as fromAppSelector from "./_store/app.selectors";
 
 @Component({
   selector: 'rp-root',
@@ -12,6 +13,9 @@ export class AppComponent {
   myData = ['saban', 'peter', 'heike'];
   selectedIndex = -1;
   readonly counter$ = this.store.select( fromCounter.selectCounterState ) ;
+  readonly test1$ = this.store.select( fromAppSelector.selectTest1 ) ;
+  readonly test2$ = this.store.select( fromAppSelector.selectTest2 ) ;
+  readonly testSum$ = this.store.select( fromAppSelector.selectTestSum ) ;
 
   constructor( private readonly store: Store ) {
   }

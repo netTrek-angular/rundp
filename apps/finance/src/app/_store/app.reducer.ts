@@ -3,23 +3,24 @@ import {
   ActionReducerMap,
   createFeatureSelector, createReducer,
   createSelector,
-  MetaReducer
+  MetaReducer, on
 } from '@ngrx/store';
 import {environment} from "../../environments/environment";
 import * as fromTess from "./counter.index";
-
+import * as CounterActions from './counter.actions';
 
 export const test1FeatureKey = 'test1';
 
 export const reducerTest1 = createReducer(
   0,
+  on(CounterActions.increment, state => state + 1),
 );
 
 export const test2FeatureKey = 'test2';
 
 export const reducerTest2 = createReducer(
   0,
-
+  on(CounterActions.increment, state => state + 1),
 );
 
 export interface AppState {
