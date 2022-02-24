@@ -10,13 +10,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import * as fromCounterStore from "./_store/counter.index";
 import { reducers, metaReducers } from './_store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [BrowserModule, ListModule, AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreModule.forFeature( fromCounterStore.counterFeatureKey, fromCounterStore.reducer ),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent],
