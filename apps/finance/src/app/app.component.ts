@@ -5,6 +5,7 @@ import {Store} from "@ngrx/store";
 import {selectNavigationId, selectRouterState, selectUrl} from "./_store/router/router.selectors";
 import {filter} from "rxjs";
 import {selectCounterState} from "./_store/counter/counter.selectors";
+import {decrement, increment, setCounterState} from "./_store/counter/counter.actions";
 
 @Component({
   selector: 'rp-root',
@@ -83,14 +84,14 @@ export class AppComponent implements AfterViewInit {
   }
 
   decrement() {
-    console.log('decrement')
+    this.store.dispatch( decrement() );
   }
 
   increment() {
-    console.log('increment')
+    this.store.dispatch( increment() );
   }
 
   setVal() {
-    console.log('setVal')
+    this.store.dispatch( setCounterState({val: 111}) );
   }
 }

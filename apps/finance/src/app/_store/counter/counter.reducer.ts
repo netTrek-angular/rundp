@@ -13,6 +13,7 @@ export const counterFeatureKey = 'counter';
 
 export const reducer = createReducer(
   0,
-  on(CounterActions.loadCounters, state => state),
-
+  on(CounterActions.increment, state => state + 1 ),
+  on(CounterActions.decrement, state => state - 1 ),
+  on(CounterActions.setCounterState, (state, {val}) => val ),
 );
