@@ -11,7 +11,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {routerReducer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {routerFeatureKey} from "./_store/router/router.selectors";
-import * as fromCounter from './_store/counter/counter.reducer';
+import * as fromCounter from './_store/counter/index';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent, HelloWorldComponent],

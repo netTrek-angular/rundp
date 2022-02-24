@@ -4,8 +4,7 @@ import {Sample1Service} from "@rp/reactive";
 import {Store} from "@ngrx/store";
 import {selectNavigationId, selectRouterState, selectUrl} from "./_store/router/router.selectors";
 import {filter} from "rxjs";
-import {selectCounterState} from "./_store/counter/counter.selectors";
-import {decrement, increment, setCounterState} from "./_store/counter/counter.actions";
+import * as fromCounter from "./_store/counter/index";
 
 @Component({
   selector: 'rp-root',
@@ -15,7 +14,7 @@ import {decrement, increment, setCounterState} from "./_store/counter/counter.ac
 export class AppComponent implements AfterViewInit {
 
   title = 'finance';
-  readonly counter$ = this.store.select( selectCounterState );
+  readonly counter$ = this.store.select( fromCounter.selectCounterState );
   private loadAvatar = false;
 
   constructor(
@@ -84,14 +83,14 @@ export class AppComponent implements AfterViewInit {
   }
 
   decrement() {
-    this.store.dispatch( decrement() );
+    this.store.dispatch( fromCounter.decrement() );
   }
 
   increment() {
-    this.store.dispatch( increment() );
+    this.store.dispatch( fromCounter.increment() );
   }
 
   setVal() {
-    this.store.dispatch( setCounterState({val: 111}) );
+    this.store.dispatch( fromCounter.setCounterState({val: 111}) );
   }
 }
