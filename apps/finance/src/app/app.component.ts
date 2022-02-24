@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'finance';
   myData = ['saban', 'peter', 'heike'];
   selectedIndex = -1;
+  readonly counter$ = this.store.select( fromCounter.selectCounterState ) ;
 
   constructor( private readonly store: Store ) {
   }
