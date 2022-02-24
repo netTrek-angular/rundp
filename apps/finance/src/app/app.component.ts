@@ -4,6 +4,7 @@ import {Sample1Service} from "@rp/reactive";
 import {Store} from "@ngrx/store";
 import {selectNavigationId, selectRouterState, selectUrl} from "./_store/router/router.selectors";
 import {filter} from "rxjs";
+import {selectCounterState} from "./_store/counter/counter.selectors";
 
 @Component({
   selector: 'rp-root',
@@ -13,6 +14,7 @@ import {filter} from "rxjs";
 export class AppComponent implements AfterViewInit {
 
   title = 'finance';
+  readonly counter$ = this.store.select( selectCounterState );
   private loadAvatar = false;
 
   constructor(
