@@ -11,6 +11,11 @@ import { environment } from '../environments/environment';
 import * as fromCounterStore from "./_store/counter.index";
 import { reducers, metaReducers } from './_store/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import {DefaultDataServiceConfig, EntityDataModule} from '@ngrx/data';
+import {defaultDataServiceConfig, entityConfig} from './_store/entity-metadata';
+import { PostModule } from './post/post.module';
+import {HttpClientModule} from "@angular/common/http";
+import { PostEffects } from './post/post.effects';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -18,9 +23,14 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreModule.forFeature( fromCounterStore.counterFeatureKey, fromCounterStore.reducer ),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    EntityDataModule.forRoot(entityConfig),
+    PostModule,
+    HttpClientModule,
+    EffectsModule.forFeature([PostEffects])
   ],
-  providers: [],
+  providers: [{ provide: DefaultDataServiceConfig,
+    useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
