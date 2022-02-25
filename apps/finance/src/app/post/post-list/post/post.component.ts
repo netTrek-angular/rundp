@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Post} from "../../post";
 
 @Component({
@@ -8,4 +8,13 @@ import {Post} from "../../post";
 })
 export class PostComponent {
   @Input() post?: Post;
+  @Output() del = new EventEmitter<Post> ();
+  @Output() edit = new EventEmitter<Post> ();
+  doDel() {
+    this.del.emit( this.post );
+  }
+
+  doEdit() {
+    this.edit.emit( this.post );
+  }
 }
