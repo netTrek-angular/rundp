@@ -16,6 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@rp/avatar": ["libs/ui/src/lib/avatar/avatar.component"],
+      "@rp/using-com": ["libs/ui/src/lib/using-common-mod/using-common-mod.component"],
+      "@rp/not-using-com": ["libs/ui/src/lib/not-using-common-mod/not-using-common-mod.component"],
       "@rp/dash": ["libs/ui/src/lib/dash/dash.module"],
       "@rp/reactive": ["libs/reactive/src/index.ts"],
       "@rp/ui": ["libs/ui/src/index.ts"]

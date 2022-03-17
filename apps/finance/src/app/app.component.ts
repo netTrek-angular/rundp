@@ -21,7 +21,7 @@ export class AppComponent implements AfterViewInit {
     public readonly viewContainerRef: ViewContainerRef,
     readonly s1: Sample1Service,
     private readonly store: Store ) {
-    // this.loadAvatar = true;
+    this.loadAvatar = true;
     // this.rxjsSamples(s1);
 
   }
@@ -35,12 +35,17 @@ export class AppComponent implements AfterViewInit {
 
     if ( !this.loadAvatar ) return;
 
-    const comp = await import('@rp/avatar').then(m => m.AvatarComponent);
-    // console.log( comp );
-    const compRef = this.viewContainerRef.createComponent<AvatarComponent>(comp);
+    const avatarComponent = await import('@rp/avatar').then(m => m.AvatarComponent);
+    const compRef = this.viewContainerRef.createComponent<AvatarComponent>(avatarComponent);
     compRef.instance.show = true;
-    // console.log( compRef )
+
+    const useComMod = await import('@rp/using-com').then(m => m.UsingCommonModComponent);
+    this.viewContainerRef.createComponent (useComMod);
+
+    const useNotComMod = await import('@rp/not-using-com').then(m => m.NotUsingCommonModComponent);
+    this.viewContainerRef.createComponent (useNotComMod);
   }
+
 
   private rxjsSamples(s1: Sample1Service) {
     // s1.getMerge().subscribe( {next: console.log, complete: () => console.warn('f') })
